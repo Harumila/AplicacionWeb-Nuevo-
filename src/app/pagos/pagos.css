@@ -1,0 +1,48 @@
+
+    .container {
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th, td {
+      padding: 12px;
+      font-size: 14px;
+    }
+    th {
+      color: #333;
+    }
+    td {
+      color: #444;
+    }
+    .btn {
+      background-color: #ff5f9e;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .btn:hover {
+      background-color: #ff2f80;
+    }
+    .reporte {
+      display: block;
+      margin: 20px auto 0;
+      background-color: #ff5f9e;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .reporte:hover {
+      background-color: #ff2f80;
+    }

@@ -1,0 +1,50 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 sidebar" [class.closed]="isSidebarClosed">
+  <button class="toggle-btn" (click)="toggleSidebar()">
+    <i class="bi bi-list icon"></i>
+    <span *ngIf="!isSidebarClosed">Toggle Sidebar</span>
+  </button>
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+      <a href="/dashboard/myadmin" class="nav-link link-dark">
+        <i class="bi bi-house-door icon"></i>
+        <span *ngIf="!isSidebarClosed">MY ADMIN</span>
+      </a>
+    </li>
+    <li>
+      <a href="/dashboard/productos" class="nav-link link-dark">
+        <i class="bi bi-box-seam icon"></i>
+        <span *ngIf="!isSidebarClosed">PRODUCTOS</span>
+      </a>
+    </li>
+    <li>
+      <a href="/dashboard/categorias" class="nav-link link-dark">
+         <i class="bi bi-list-stars"></i>
+        <span *ngIf="!isSidebarClosed">CATEGORIAS</span>
+      </a>
+    </li>
+    <li>
+      <a href="/dashboard/pedidos" class="nav-link link-dark">
+          <i class="bi bi-cart icon"></i>
+        <span *ngIf="!isSidebarClosed">PEDIDOS</span>
+      </a>
+    </li>
+    <li>
+      <a href="/dashboard/reportes" class="nav-link link-dark">
+        <i class="bi bi-file-earmark-text icon"></i>
+        <span *ngIf="!isSidebarClosed">REPORTES</span>
+      </a>
+    </li>
+    <li>
+      <a href="/dashboard/pagos" class="nav-link link-dark">
+        <i class="bi bi-currency-dollar"></i>
+        <span *ngIf="!isSidebarClosed">PAGOS</span>
+      </a>
+    </li>
+    <li>
+      <a href="/dashboard/estadisticas" class="nav-link link-dark">
+        <i class="bi bi-clipboard-data"></i>
+        <span *ngIf="!isSidebarClosed">ESTADISTICAS</span>
+      </a>
+    </li>
+  </ul>
+</div>

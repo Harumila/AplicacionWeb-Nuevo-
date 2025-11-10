@@ -1,0 +1,99 @@
+
+  <!-- Platillos más vendidos -->
+  <div class="chart-container">
+    <h3>Platillos más vendidos</h3>
+    <canvas id="platillosChart"></canvas>
+  </div>
+
+  <!-- Bubbletea más vendidos -->
+  <div class="chart-container">
+    <h3>Bubbletea más vendidos</h3>
+    <canvas id="bubbleteaChart"></canvas>
+  </div>
+
+  <!-- Ventas realizadas -->
+  <div class="chart-container">
+    <h3>Ventas realizadas</h3>
+    <canvas id="ventasChart"></canvas>
+  </div>
+
+  <!-- Reservas de pedidos -->
+  <div class="chart-container">
+    <h3>Reservas de pedidos</h3>
+    <canvas id="reservasChart"></canvas>
+  </div>
+
+  <script>
+    // Colores
+    const colores = ["#f472b6", "#c084fc", "#9333ea"];
+
+    // Platillos más vendidos (gráfico de barras horizontales)
+    new Chart(document.getElementById("platillosChart"), {
+      type: 'bar',
+      data: {
+        labels: ["Kimbap", "Tonkatsu", "Tteokbokki", "Bibimbap"],
+        datasets: [
+          { label: "27/05/25", data: [20, 10, 15, 25], backgroundColor: colores[0] },
+          { label: "28/05/25", data: [15, 12, 18, 20], backgroundColor: colores[1] },
+          { label: "29/05/25", data: [10, 18, 25, 50], backgroundColor: colores[2] }
+        ]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        plugins: { legend: { position: 'top' } }
+      }
+    });
+
+    // Bubbletea más vendidos (gráfico de pastel)
+    new Chart(document.getElementById("bubbleteaChart"), {
+      type: 'pie',
+      data: {
+        labels: ["Café 15.3%", "Matcha 22.4%", "Fruta 62.3%"],
+        datasets: [{
+          data: [15.3, 22.4, 62.3],
+          backgroundColor: colores
+        }]
+      }
+    });
+
+    // Ventas realizadas (gráfico de columnas)
+    new Chart(document.getElementById("ventasChart"), {
+      type: 'bar',
+      data: {
+        labels: ["25/05/25", "26/05/25", "27/05/25", "28/05/25"],
+        datasets: [{
+          label: "Ventas",
+          data: [7, 12, 15, 18],
+          backgroundColor: colores
+        }]
+      },
+      options: { responsive: true }
+    });
+
+    // Reservas de pedidos (gráfico de líneas)
+    new Chart(document.getElementById("reservasChart"), {
+      type: 'line',
+      data: {
+        labels: ["25/05/25", "26/05/25", "27/05/25", "28/05/25", "29/05/25"],
+        datasets: [
+          {
+            label: "Reservas A",
+            data: [10, 25, 15, 30, 35],
+            borderColor: colores[0],
+            fill: false,
+            tension: 0.3
+          },
+          {
+            label: "Reservas B",
+            data: [20, 15, 28, 40, 45],
+            borderColor: colores[2],
+            fill: false,
+            tension: 0.3
+          }
+        ]
+      },
+      options: { responsive: true }
+    });
+  </script>
+

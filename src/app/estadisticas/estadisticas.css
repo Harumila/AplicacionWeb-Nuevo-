@@ -1,0 +1,22 @@
+ body {
+      background-color: #f3b5d8; /* rosado */
+      font-family: Arial, sans-serif;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding: 20px;
+    }
+    .chart-container {
+      background: white;
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+    }
+    h3 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    canvas {
+      width: 100% !important;
+      height: 250px !important;
+    }

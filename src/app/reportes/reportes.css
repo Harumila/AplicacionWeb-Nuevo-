@@ -1,0 +1,107 @@
+body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fbcce0;
+      display: flex;
+    }
+    /* Menú lateral */
+    .sidebar {
+      width: 200px;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 2px 0 6px rgba(0,0,0,0.1);
+      height: 100vh;
+    }
+    .sidebar h2 {
+      font-size: 16px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+    .sidebar ul li {
+      margin: 12px 0;
+    }
+    .sidebar ul li a {
+      text-decoration: none;
+      color: black;
+      font-size: 14px;
+      padding: 6px 10px;
+      display: block;
+      border-radius: 5px;
+    }
+    .sidebar ul li a.active {
+      background: #ff5fa2;
+      color: white;
+    }
+
+    /* Contenido */
+    .content {
+      flex: 1;
+      padding: 30px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .logo img {
+      width: 80px;
+      border-radius: 50%;
+    }
+    .form-header {
+      margin-bottom: 15px;
+    }
+    .form-header label {
+      font-size: 14px;
+      margin-right: 5px;
+    }
+    .form-header input {
+      padding: 5px;
+      margin-right: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    /* Tabla */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background: #ff33aa;
+      color: white;
+    }
+    tfoot td {
+      font-weight: bold;
+    }
+
+    /* Botón */
+    .btn {
+      margin-top: 15px;
+      float: right;
+      padding: 10px 20px;
+      background: #ff5fa2;
+      border: none;
+      color: white;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #ff3385;
+    }
