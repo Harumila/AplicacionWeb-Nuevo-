@@ -1,41 +1,15 @@
 <div class="container">
   <h2>CATEGORÍAS</h2>
 
-  <div class="category-row">
-    <div class="category-name">ramen</div>
-    <button class="btn-guardar">guardar</button>
-    <button class="btn-eliminar">eliminar</button>
-  </div>
-  <div class="category-row">
-    <div class="category-name">Bebidas</div>
-    <button class="btn-guardar">guardar</button>
-    <button class="btn-eliminar">eliminar</button>
-  </div>
-  <div class="category-row">
-    <div class="category-name">mochis</div>
-    <button class="btn-guardar">guardar</button>
-    <button class="btn-eliminar">eliminar</button>
-  </div>
-  <div class="category-row">
-    <div class="category-name">onigiry</div>
-    <button class="btn-guardar">guardar</button>
-    <button class="btn-eliminar">eliminar</button>
-  </div>
-  <div class="category-row">
-    <div class="category-name">helados</div>
-    <button class="btn-guardar">guardar</button>
-    <button class="btn-eliminar">eliminar</button>
-  </div>
-  <div class="category-row">
-    <div class="category-name">corn dogs</div>
-    <button class="btn-guardar">guardar</button>
-    <button class="btn-eliminar">eliminar</button>
-  </div>
-  <div class="category-row">
-    <div class="category-name">combos</div>
-    <button class="btn-guardar">guardar</button>
-    <button class="btn-eliminar">eliminar</button>
+  <div class="category-row" *ngFor="let categoria of categoriasFiltradas">
+    <div class="category-name" *ngIf="!categoria.editando">{{ categoria.nombre }}</div>
+    <input type="text" class="category-name-input" [(ngModel)]="categoria.nombre" *ngIf="categoria.editando">
+    
+    <button class="btn-guardar" *ngIf="!categoria.editando" (click)="activarEdicion(categoria)">editar</button>
+    <button class="btn-guardar" *ngIf="categoria.editando" (click)="guardarEdicion(categoria)">guardar</button>
+    
+    <button class="btn-eliminar" (click)="eliminarCategoria(categoria)">eliminar</button>
   </div>
 
-  <button class="add-category">agregar nuevo categoria</button>
+  <button class="add-category" (click)="agregarCategoria()">agregar nuevo categoria</button>
 </div>

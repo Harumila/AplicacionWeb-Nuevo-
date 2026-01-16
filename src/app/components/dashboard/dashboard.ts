@@ -21,7 +21,7 @@ export class Dashboard {
   }
 
   createSalesChart() {
-    const ctx = (document.getElementById('salesChart') as HTMLCanvasElement).getContext('2d');
+    /*const ctx = (document.getElementById('salesChart') as HTMLCanvasElement).getContext('2d');
     if (ctx) {
       new Chart(ctx, {
         type: 'line',
@@ -44,11 +44,11 @@ export class Dashboard {
           }
         }
       });
-    }
+    }*/
   }
 
   createPerformanceChart() {
-    const ctx = (document.getElementById('performanceChart') as HTMLCanvasElement).getContext('2d');
+    /*const ctx = (document.getElementById('performanceChart') as HTMLCanvasElement).getContext('2d');
     if (ctx) {
       new Chart(ctx, {
         type: 'doughnut',
@@ -65,7 +65,7 @@ export class Dashboard {
           responsive: true
         }
       });
-    }
+    }*/
   }
 
   emitSettingsEvent() {

@@ -1,41 +1,59 @@
 <div class="container">
-  <h1>PRODUCTOS</h1>
+  <h1>DETALLE DE PRODUCTO</h1>
   
   <div class="content">
     
-    <!-- Left: Bowl image and edit icon -->
+    <!-- Left: Image and Price -->
     <div class="left">
-      <img src="img/ramen1.png" alt="Ramen" />
-      <div class="edit-icon">
-        <img src="img/ramen1.png" alt="Editar" />
-        editar
+      <img [src]="producto.imagen" [alt]="producto.nombre" />
+      
+      <div class="edit-icon" *ngIf="editando">
+        <label for="fileInput" style="cursor: pointer;">
+           📷 Cambiar imagen
+        </label>
+        <input type="file" id="fileInput" (change)="onFileSelected($event)" accept="image/*" style="display: none;">
       </div>
       
       <div class="price">
-        $15.00
-        <small>editar</small>
+        <span *ngIf="!editando">{{ producto.precio | currency }}</span>
+        <input *ngIf="editando" type="number" [(ngModel)]="producto.precio" class="input-price" step="0.50">
       </div>
     </div>
     
-    <!-- Center: Text, description, buttons -->
+    <!-- Center: Name, Description, Ingredients -->
     <div class="center">
-      <h2>ramen de cerdo</h2>
-      <p>El ramen de cerdo, conocido como Tonkotsu Ramen, es una sopa japonesa hecha con un caldo espeso y cremoso preparado a base de huesos de cerdo cocidos por horas. Se acompaña fideos, carne de cerdo (chashu), huevo marinado y cebolla china, ofreciendo un sabor profundo y reconfortante.</p>
+      <h2 *ngIf="!editando">{{ producto.nombre }}</h2>
+      <input *ngIf="editando" type="text" [(ngModel)]="producto.nombre" class="input-title" placeholder="Nombre del producto">
       
+      <p *ngIf="!editando">{{ producto.descripcion }}</p>
+      <textarea *ngIf="editando" [(ngModel)]="producto.descripcion" class="input-desc" rows="5"></textarea>
+      
+      <div class="ingredients-section" *ngIf="editando">
+        <h3>Ingredientes:</h3>
+        <ul>
+          <li *ngFor="let ing of producto.ingredientes; let i = index">
+            {{ ing }} <span (click)="eliminarIngrediente(i)" class="remove-ing">❌</span>
+          </li>
+        </ul>
+        <div class="add-ing">
+          <input type="text" [(ngModel)]="nuevoIngrediente" placeholder="Nuevo ingrediente" (keyup.enter)="agregarIngrediente()">
+          <button (click)="agregarIngrediente()" class="btn-small">+</button>
+        </div>
+      </div>
+
       <div class="buttons">
-        <button class="btn btn-green">ver ingredientes</button>
-        <button class="btn btn-brown">editar</button>
+        <button class="btn btn-green" *ngIf="!editando">ver ingredientes</button> <!-- Could toggle a modal or list -->
+        <button class="btn btn-brown" *ngIf="!editando" (click)="activarEdicion()">editar</button>
       </div>
     </div>
     
-    <!-- Right: Character image -->
+    <!-- Right: Save Actions -->
     <div class="right">
-      <img class="main" src="assets/ramen1.png" alt="Personaje" />
-      <div class="bottom-btn">guardar cambios</div>
+      <img class="main" src="assets/img/ramen4.png" alt="Personaje" /> <!-- Static character image -->
+      <div class="bottom-btn" *ngIf="editando" (click)="guardarCambios()" style="cursor: pointer; background-color: #ff5f9e;">guardar cambios</div>
+      <div class="bottom-btn" *ngIf="!editando">guardar cambios</div> <!-- Disabled look -->
     </div>
     
   </div>
   
 </div>
-
-

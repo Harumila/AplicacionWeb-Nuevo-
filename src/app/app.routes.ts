@@ -11,6 +11,7 @@ import { EstadisticasComponent } from './estadisticas/estadisticas';
 import { MyadminComponent } from './myadmin/myadmin';
 
 export const routes: Routes = [
+  { path: '', redirectTo: 'dashboard/myadmin', pathMatch: 'full' },
   {
     path: 'dashboard', component: Dashboard,
     children: [

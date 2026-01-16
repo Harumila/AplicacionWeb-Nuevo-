@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-myadmin',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './myadmin.html',
   styleUrl: './myadmin.css'
 })

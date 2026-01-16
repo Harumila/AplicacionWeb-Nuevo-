@@ -1,60 +1,88 @@
 
-  <div class="container">
-    <table>
-      <thead>
-        <tr>
-          <th>NOMBRE</th>
-          <th>MONTO</th>
-          <th>MÉTODO DE PAGO</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Valentina Soto Morales</td>
-          <td>$120.00</td>
-          <td>Yape</td>
-          <td><button class="btn">Descargar comprobante</button></td>
-        </tr>
-        <tr>
-          <td>Luna Torres Aguilar</td>
-          <td>$80.00</td>
-          <td>Efectivo</td>
-          <td><button class="btn">Descargar comprobante</button></td>
-        </tr>
-        <tr>
-          <td>Iker Paredes Navarro</td>
-          <td>$95.00</td>
-          <td>Yape</td>
-          <td><button class="btn">Descargar comprobante</button></td>
-        </tr>
-        <tr>
-          <td>Dylan Silva Paredes</td>
-          <td>$57.00</td>
-          <td>Yape</td>
-          <td><button class="btn">Descargar comprobante</button></td>
-        </tr>
-        <tr>
-          <td>Zoe Castillo Rodríguez</td>
-          <td>$64.00</td>
-          <td>Efectivo</td>
-          <td><button class="btn">Descargar comprobante</button></td>
-        </tr>
-        <tr>
-          <td>Emma Vargas Salazar</td>
-          <td>$31.00</td>
-          <td>Efectivo</td>
-          <td><button class="btn">Descargar comprobante</button></td>
-        </tr>
-        <tr>
-          <td>Liam Estrada Barrios</td>
-          <td>$47.00</td>
-          <td>Yape</td>
-          <td><button class="btn">Descargar comprobante</button></td>
-        </tr>
-      </tbody>
-    </table>
-    <button class="reporte">Reporte de Comprobantes</button>
+<div class="container">
+  <div class="header-actions">
+    <button class="btn-agregar" (click)="iniciarNuevoPago()">+ Agregar Nuevo Pago</button>
   </div>
+  <table>
+    <thead>
+      <tr>
+        <th>NOMBRE</th>
+        <th>MONTO</th>
+        <th>MÉTODO DE PAGO</th>
+        <th>FECHA</th>
+        <th>ESTADO</th>
+        <th>ACCIONES</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Fila para agregar nuevo pago -->
+      <tr *ngIf="nuevoPago">
+        <td><input [(ngModel)]="nuevoPago.nombre" placeholder="Nombre del cliente" class="input-edit"></td>
+        <td><input [(ngModel)]="nuevoPago.monto" type="number" class="input-edit"></td>
+        <td>
+          <select [(ngModel)]="nuevoPago.metodoPago" class="input-edit">
+            <option value="Yape">Yape</option>
+            <option value="Efectivo">Efectivo</option>
+            <option value="Tarjeta">Tarjeta</option>
+          </select>
+        </td>
+        <td><input [(ngModel)]="nuevoPago.fecha" type="date" class="input-edit"></td>
+        <td>
+          <select [(ngModel)]="nuevoPago.estado" class="input-edit">
+            <option value="Completado">Completado</option>
+            <option value="Pendiente">Pendiente</option>
+            <option value="Fallido">Fallido</option>
+          </select>
+        </td>
+        <td class="actions-cell">
+          <button class="btn-save" (click)="guardarNuevoPago()">Guardar</button>
+          <button class="btn-cancel" (click)="cancelarNuevoPago()">Cancelar</button>
+        </td>
+      </tr>
 
-
+      <!-- Filas de pagos existentes -->
+      <tr *ngFor="let pago of pagos">
+        <td>
+          <span *ngIf="!pago.editando">{{ pago.nombre }}</span>
+          <input *ngIf="pago.editando" [(ngModel)]="pago.nombre" class="input-edit">
+        </td>
+        <td>
+          <span *ngIf="!pago.editando">{{ pago.monto | currency }}</span>
+          <input *ngIf="pago.editando" [(ngModel)]="pago.monto" type="number" class="input-edit">
+        </td>
+        <td>
+          <span *ngIf="!pago.editando">{{ pago.metodoPago }}</span>
+          <select *ngIf="pago.editando" [(ngModel)]="pago.metodoPago" class="input-edit">
+            <option value="Yape">Yape</option>
+            <option value="Efectivo">Efectivo</option>
+            <option value="Tarjeta">Tarjeta</option>
+          </select>
+        </td>
+        <td>
+          <span *ngIf="!pago.editando">{{ pago.fecha }}</span>
+          <input *ngIf="pago.editando" [(ngModel)]="pago.fecha" type="date" class="input-edit">
+        </td>
+        <td>
+          <span *ngIf="!pago.editando" [class]="'badge ' + pago.estado.toLowerCase()">{{ pago.estado }}</span>
+          <select *ngIf="pago.editando" [(ngModel)]="pago.estado" class="input-edit">
+            <option value="Completado">Completado</option>
+            <option value="Pendiente">Pendiente</option>
+            <option value="Fallido">Fallido</option>
+          </select>
+        </td>
+        <td class="actions-cell">
+          <button *ngIf="!pago.editando" class="btn icon-btn" (click)="descargarComprobante(pago)" title="Descargar Comprobante">
+            📄
+          </button>
+          <button class="btn icon-btn" (click)="toggleEdicion(pago)" [title]="pago.editando ? 'Guardar' : 'Editar'">
+            {{ pago.editando ? '💾' : '✏️' }}
+          </button>
+          <button class="btn icon-btn delete-btn" (click)="eliminarPago(pago.id)" title="Eliminar">
+            🗑️
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="reporte">Reporte de Comprobantes</button>
+</div>

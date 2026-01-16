@@ -1,22 +1,91 @@
- body {
-      background-color: #f3b5d8; /* rosado */
-      font-family: Arial, sans-serif;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      padding: 20px;
-    }
-    .chart-container {
-      background: white;
-      padding: 15px;
-      border-radius: 15px;
-      box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
-    }
-    h3 {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-    canvas {
-      width: 100% !important;
-      height: 250px !important;
-    }
+.stats-container {
+  background-color: #fbddee; /* Fondo rosado suave */
+  font-family: 'Comic Sans MS', 'Arial', sans-serif;
+  padding: 20px;
+  min-height: 100vh; /* Ensure full height coverage */
+  box-sizing: border-box;
+}
+
+.stats-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 15px 30px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  margin-bottom: 25px;
+}
+
+.stats-header h2 {
+  margin: 0;
+  color: #d63384;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filters select {
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: 2px solid #f472b6;
+  background: white;
+  color: #d63384;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 25px;
+}
+
+.chart-container {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s;
+}
+
+.chart-container:hover {
+  transform: translateY(-5px);
+}
+
+.chart-container h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #555;
+  font-size: 1.1rem;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+canvas {
+  width: 100% !important;
+  height: 300px !important;
+  max-height: 400px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+}

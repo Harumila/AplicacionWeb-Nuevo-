@@ -1,110 +1,140 @@
 
- /* Sidebar */
- .sidebar {
-     width: 220px;
-     height: 100vh;
-     background-color: #fff0f6;
-     padding: 20px;
-     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
-     position: fixed;
-     left: 0;
-     top: 0;
- }
+body {
+    font-family: Arial, sans-serif;
+    background: #ffe6f0;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
 
- .sidebar h2 {
-     text-align: center;
-     margin-bottom: 30px;
-     font-size: 18px;
-     font-weight: bold;
- }
+.container {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    width: 750px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
 
- .sidebar ul {
-     list-style: none;
-     padding: 0;
- }
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
- .sidebar ul li {
-     margin: 15px 0;
- }
+.filtro {
+    margin-bottom: 15px;
+}
 
- .sidebar ul li a {
-     display: block;
-     padding: 10px 15px;
-     border-radius: 8px;
-     color: #333;
-     text-decoration: none;
-     font-weight: bold;
-     transition: background-color 0.3s ease;
- }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
 
- .sidebar ul li a.active,
- .sidebar ul li a:hover {
-     background-color: #ff5e8c;
-     color: white;
- }
+th,
+td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    vertical-align: middle;
+}
 
- /* Contenido */
- .content {
-     margin-left: 240px;
-     padding: 20px;
- }
+th {
+    background: #f8f8f8;
+}
 
- .content h1 {
-     text-align: center;
-     margin-bottom: 20px;
- }
+.product-img {
+    width: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
 
- /* Tabla de productos */
- table {
-     width: 100%;
-     border-collapse: collapse;
-     background: white;
-     border-radius: 10px;
-     overflow: hidden;
-     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
- }
+.btn {
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
- table th,
- table td {
-     padding: 12px;
-     text-align: center;
-     border-bottom: 1px solid #ddd;
- }
+.btn-add {
+    background: #ff5e8c;
+    color: white;
+}
 
- table th {
-     background: #ffe6f0;
- }
+.btn-add:hover {
+    background: #ff3366;
+}
 
- table img {
-     width: 60px;
-     border-radius: 8px;
- }
+.btn-delete {
+    background: red;
+    color: white;
+}
 
- .btn {
-     display: inline-block;
-     padding: 8px 15px;
-     margin: 10px 5px;
-     border: none;
-     border-radius: 20px;
-     font-weight: bold;
-     cursor: pointer;
-     transition: 0.3s;
- }
+.btn-delete:hover {
+    background: darkred;
+}
 
- .btn-add {
-     background: #ff5e8c;
-     color: white;
- }
+.input-nombre {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: inherit;
+}
 
- .btn-add:hover {
-     background: #ff3366;
- }
+.input-precio {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 80px;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: inherit;
+    text-align: center;
+}
 
- .btn-delete {
-     background: red;
-     color: white;
- }
+.input-categoria {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: inherit;
+}
 
- .btn-delete:hover {
-     background: darkred;
- }
+.add-product-btn {
+    background: #ff7997;
+    border-radius: 15px;
+    border: none;
+    padding: 12px 25px;
+    font-family: 'Press Start 2P', cursive; /* Using the same font family as categories if available, else standard */
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    display: block;
+}
+
+.add-product-btn:hover {
+    background: #ff5e8c;
+}
+
+.file-upload-container {
+    margin-top: 5px;
+    text-align: center;
+}
+
+.file-input {
+    font-size: 10px;
+    max-width: 150px;
+}

@@ -1,44 +1,64 @@
-<div class="content">
-  <h1>PRODUCTOS</h1>
+<div class="container">
+  <h2>Productos</h2>
+
+  <div class="filtro">
+    <label for="filtroCategoria">Filtrar por categoría:</label>
+    <select id="filtroCategoria" (change)="onCategoriaChange($event)">
+      <option value="todos">Todos</option>
+      <option value="ramen">Ramen</option>
+      <option value="bebida">Bebida</option>
+      <option value="snack">Snack</option>
+      <option value="postre">Postre</option>
+    </select>
+  </div>
+
   <table>
     <thead>
       <tr>
         <th>Imagen</th>
         <th>Nombre</th>
+        <th>Categoría</th>
         <th>Precio</th>
-        <th>Detalles</th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><img src="img/ramen2.png" alt="ramen"></td>
-        <td>Ramen de cerdo</td>
-        <td>$15.00</td>
-        <td><a href="/dashboard/detalledeproducto">Detalles</a></td>
-      </tr>
-      <tr>
-        <td><img src="img/ramen2.png" alt="ramen"></td>
-        <td>Shin Ramyeon</td>
-        <td>$22.00</td>
-        <td><a href="/dashboard/detalledeproducto">Detalles</a></td>
-      </tr>
-      <tr>
-        <td><img src="img/ramen3.png" alt="ramen"></td>
-        <td>Neoguri</td>
-        <td>$8.00</td>
-        <td><a href="/dashboard/detalledeproducto">Detalles</a></td>
-      </tr>
-      <tr>
-        <td><img src="img/ramen1.png" alt="ramen"></td>
-        <td>Chapagetti</td>
-        <td>$13.00</td>
-        <td><a href="/dashboard/detalledeproducto">Detalles</a></td>
+      <tr *ngFor="let producto of productosFiltrados">
+        <td>
+            <img [src]="producto.imagen" [alt]="producto.nombre" class="product-img" />
+            <div *ngIf="producto.editando" class="file-upload-container">
+                <input type="file" (change)="onFileSelected($event, producto)" accept="image/*" class="file-input">
+            </div>
+        </td>
+        
+        <td>
+          <span *ngIf="!producto.editando">{{ producto.nombre }}</span>
+          <input type="text" [(ngModel)]="producto.nombre" *ngIf="producto.editando" class="input-nombre" placeholder="Nombre del producto">
+        </td>
+
+        <td>
+          <span *ngIf="!producto.editando">{{ producto.categoria }}</span>
+          <select [(ngModel)]="producto.categoria" *ngIf="producto.editando" class="input-categoria">
+            <option value="ramen">Ramen</option>
+            <option value="bebida">Bebida</option>
+            <option value="snack">Snack</option>
+            <option value="postre">Postre</option>
+          </select>
+        </td>
+        
+        <td>
+           <span *ngIf="!producto.editando">S/. {{ producto.precio.toFixed(2) }}</span>
+           <input type="number" [(ngModel)]="producto.precio" *ngIf="producto.editando" class="input-precio" step="0.50">
+        </td>
+        
+        <td>
+          <button class="btn btn-add" *ngIf="!producto.editando" (click)="activarEdicion(producto)">Editar</button>
+          <button class="btn btn-add" *ngIf="producto.editando" (click)="guardarEdicion(producto)">Guardar</button>
+          <button class="btn btn-delete" (click)="eliminarProducto(producto)">Eliminar</button>
+        </td>
       </tr>
     </tbody>
   </table>
 
-  <div style="text-align: center;">
-    <button class="btn btn-add">➕ Agregar</button>
-    <button class="btn btn-delete">❌ Eliminar</button>
-  </div>
+  <button class="add-product-btn" (click)="agregarProducto()">Agregar Nuevo Producto</button>
 </div>

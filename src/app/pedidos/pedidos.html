@@ -3,7 +3,7 @@
 
   <div class="filtro">
     <label for="estado">ESTADO: </label>
-    <select id="estado">
+    <select id="estado" (change)="onEstadoChange($event)">
       <option value="todos">todos</option>
       <option value="entregado">Entregado</option>
       <option value="proceso">Proceso</option>
@@ -22,53 +22,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Valeria Montes Ríos</td>
-        <td>2 MOCHIS<br>1 BEBIDA</td>
-        <td>15/01/2025</td>
-        <td>11:45 a.m.</td>
+      <tr *ngFor="let pedido of pedidosFiltrados">
+        <td>{{pedido.nombre}}</td>
+        <td [innerHTML]="pedido.producto"></td>
+        <td>{{pedido.fecha}}</td>
+        <td>{{pedido.hora}}</td>
         <td>
-          <span class="estado entregado">ENTREGADO</span>
-          <button class="btn-boleta">generar boleta</button>
-        </td>
-      </tr>
-      <tr>
-        <td>Camila Herrera Delgado</td>
-        <td>1 RAMEN</td>
-        <td>28/09/2025</td>
-        <td>08:30 a.m.</td>
-        <td>
-          <span class="estado proceso">PROCESO</span>
-          <button class="btn-boleta">generar boleta</button>
-        </td>
-      </tr>
-      <tr>
-        <td>Luciana Torres Guzmán</td>
-        <td>2 HELADOS<br>1 MOCHI</td>
-        <td>25/08/2025</td>
-        <td>02:15 p.m.</td>
-        <td>
-          <span class="estado cancelado">CANCELADO</span>
-          <button class="btn-boleta">generar boleta</button>
-        </td>
-      </tr>
-      <tr>
-        <td>Diego Ramírez Paredes</td>
-        <td>3 ONIGIRI<br>1 BEBIDA</td>
-        <td>12/05/2025</td>
-        <td>06:00 p.m.</td>
-        <td>
-          <span class="estado entregado">ENTREGADO</span>
-          <button class="btn-boleta">generar boleta</button>
-        </td>
-      </tr>
-      <tr>
-        <td>Mateo Fernández Rojas</td>
-        <td>1 RAMEN<br>3 CORN DOG</td>
-        <td>06/05/2025</td>
-        <td>09:20 p.m.</td>
-        <td>
-          <span class="estado proceso">PROCESO</span>
+          <span class="estado" [ngClass]="pedido.estado">
+            {{pedido.estado === 'entregado' ? 'ENTREGADO' : pedido.estado === 'proceso' ? 'PROCESO' : 'CANCELADO'}}
+          </span>
           <button class="btn-boleta">generar boleta</button>
         </td>
       </tr>

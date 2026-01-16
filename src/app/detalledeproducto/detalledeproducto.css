@@ -1,3 +1,4 @@
+
 body {
     background-color: #fbddee;
     font-family: 'Arial', sans-serif;
@@ -26,8 +27,9 @@ body {
   .content {
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start; /* Changed from center to accommodate different heights */
     flex-wrap: wrap;
+    gap: 20px;
   }
 
   .left, .center, .right {
@@ -38,6 +40,8 @@ body {
   .left img {
     width: 100%;
     max-width: 240px;
+    border-radius: 10px;
+    object-fit: cover;
   }
 
   .left .edit-icon {
@@ -68,6 +72,7 @@ body {
   .center p {
     font-size: 14px;
     line-height: 1.4;
+    text-align: justify;
   }
 
   .center .buttons {
@@ -134,3 +139,89 @@ body {
     margin-top: 30px;
   }
 
+  /* Edit Mode Styles */
+  .input-title {
+    width: 100%;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 1.5em;
+    padding: 5px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .input-desc {
+    width: 100%;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+  }
+
+  .input-price {
+    width: 100px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .ingredients-section {
+    margin-top: 15px;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .ingredients-section h3 {
+    font-size: 16px;
+    margin-top: 0;
+  }
+
+  .ingredients-section ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .ingredients-section li {
+    background: white;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+  }
+
+  .remove-ing {
+    cursor: pointer;
+    color: red;
+    font-size: 10px;
+  }
+
+  .add-ing {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+  }
+
+  .add-ing input {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .btn-small {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }

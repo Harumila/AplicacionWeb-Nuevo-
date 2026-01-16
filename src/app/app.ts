@@ -22,10 +22,10 @@ export class App {
   }
 
   openSettingsModal() {
-    const settingsModal = new bootstrap.Modal(document.getElementById('settingsModal'), {
+    /*const settingsModal = new bootstrap.Modal(document.getElementById('settingsModal'), {
       keyboard: false
     });
-    settingsModal.show();
+    settingsModal.show();*/
   }
 }
 

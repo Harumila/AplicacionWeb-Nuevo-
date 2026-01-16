@@ -1,48 +1,166 @@
 
-    .container {
-      background: white;
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
-    }
-    th, td {
-      padding: 12px;
-      font-size: 14px;
-    }
-    th {
-      color: #333;
-    }
-    td {
-      color: #444;
-    }
-    .btn {
-      background-color: #ff5f9e;
-      border: none;
-      color: white;
-      padding: 8px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 12px;
-    }
-    .btn:hover {
-      background-color: #ff2f80;
-    }
-    .reporte {
-      display: block;
-      margin: 20px auto 0;
-      background-color: #ff5f9e;
-      border: none;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-size: 14px;
-      cursor: pointer;
-    }
-    .reporte:hover {
-      background-color: #ff2f80;
-    }
+.container {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.header-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th, td {
+  padding: 12px;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+th {
+  color: #333;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+td {
+  color: #444;
+  border-bottom: 1px solid #f9f9f9;
+}
+
+/* Botones generales */
+.btn {
+  background-color: #ff5f9e;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.2s;
+}
+
+.btn:hover {
+  background-color: #ff2f80;
+}
+
+.btn-agregar {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.btn-agregar:hover {
+  background-color: #45a049;
+}
+
+/* Inputs de edición */
+.input-edit {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.input-edit:focus {
+  border-color: #ff5f9e;
+  outline: none;
+}
+
+/* Badges de estado */
+.badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.badge.completado {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.badge.pendiente {
+  background-color: #fff3e0;
+  color: #ef6c00;
+}
+
+.badge.fallido {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+/* Acciones */
+.actions-cell {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.icon-btn {
+  padding: 6px 10px;
+  font-size: 16px;
+  background-color: transparent;
+  color: #555;
+  border: 1px solid #ddd;
+}
+
+.icon-btn:hover {
+  background-color: #f5f5f5;
+  color: #ff5f9e;
+}
+
+.delete-btn:hover {
+  background-color: #ffebee;
+  color: #d32f2f;
+  border-color: #ffcdd2;
+}
+
+.btn-save {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.btn-cancel {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.reporte {
+  display: block;
+  margin: 20px auto 0;
+  background-color: #ff5f9e;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.reporte:hover {
+  background-color: #ff2f80;
+}
